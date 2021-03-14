@@ -1,16 +1,6 @@
-FROM python:3.8-alpine3.12
+FROM python:3.8
 
 RUN python3 -m pip install --upgrade pip
-
-RUN apk add --no-cache --virtual \
-        .build_deps \
-        libressl-dev \
-        musl-dev \
-        libffi-dev \
-        gcc
-
-# Avoid poetry instalation error
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
@@ -18,7 +8,7 @@ RUN poetry config virtualenvs.create false
 WORKDIR /backend
 
 COPY poetry.lock pyproject.toml /backend/
-RUN poetry install
+RUN poetry install --no-dev
 
 COPY . /backend/
 
