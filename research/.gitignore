@@ -26,9 +26,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Exclude git related files
-!*.gitkeep
-
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -141,5 +138,7 @@ dmypy.json
 cython_debug/
 
 # Data and Models related files
-data/*.csv
-models/*.*
+**/data/*
+!**/data/.gitkeep
+**/models/*
+!**/models/.gitkeep
