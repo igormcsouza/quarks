@@ -141,5 +141,4 @@ dmypy.json
 cython_debug/
 
 # Models related files
-**/models/*
 !**/models/.gitkeep
