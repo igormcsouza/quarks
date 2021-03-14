@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  research:
+    build:
+      context: ./research
+      dockerfile: Dockerfile
+    command: poetry run start
+    volumes:
+      - ./research/:/research/
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/:/backend/
+    ports:
+      - 8000:8000

@@ -18,7 +18,6 @@ RUN poetry config virtualenvs.create false
 WORKDIR /backend
 
 COPY poetry.lock pyproject.toml /backend/
-COPY libs/ /backend/libs/
 RUN poetry install
 
 COPY . /backend/
