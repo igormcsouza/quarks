@@ -1,0 +1,16 @@
+FROM python:3.8
+
+RUN python3 -m pip install --upgrade pip
+
+RUN pip install poetry
+RUN poetry config virtualenvs.create false
+
+WORKDIR /reseach
+
+COPY poetry.lock pyproject.toml /reseach/
+COPY libs/ /reseach/libs/
+RUN poetry install
+
+COPY . /reseach/
+
+CMD poetry run notebook
