@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build Backend Images
-        run: docker-compose build backend
+        run: docker-compose build backend-test
       - name: Run Test Backend Pipeline
-        run: docker-compose run backend poetry run test
+        run: docker-compose run backend-test poetry run test
