@@ -10,4 +10,4 @@ jobs:
       - name: Build Backend Images
         run: docker-compose build backend
       - name: Run Test Backend Pipeline
-        run: docker-compose exec -T backend poetry run test
+        run: docker-compose run backend poetry run test
