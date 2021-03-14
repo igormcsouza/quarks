@@ -4,12 +4,17 @@ version = "0.1.0"
 description = "A text sentiment analysis research to support movie review application"
 authors = ["Igor Souza <igormcsouza@gmail.com>"]
 
+[tool.poetry.scripts]
+notebook = "scripts:notebook"
+
 [tool.poetry.dependencies]
 python = "^3.8"
-nltk = "3.5"
 seaborn = "0.10.1"
+nltk = "^3.5"
+scikit-learn = "^0.24.1"
 
 [tool.poetry.dev-dependencies]
+notebook = "^6.2.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
