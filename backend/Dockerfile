@@ -1,0 +1,15 @@
+FROM python:3.8
+
+RUN python3 -m pip install --upgrade pip
+
+RUN pip install poetry
+RUN poetry config virtualenvs.create false
+
+WORKDIR /backend
+
+COPY poetry.lock pyproject.toml /backend/
+RUN poetry install --no-dev
+
+COPY . /backend/
+
+CMD gunicorn -w 2 --access-logfile - "backend:create_app()"

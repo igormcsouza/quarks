@@ -1,11 +1,13 @@
 name: Continuous Integration
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   backend:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
       - name: Build Backend Images
-        run: echo "Testing"
+        run: docker-compose build backend-test
+      - name: Run Test Backend Pipeline
+        run: docker-compose run backend-test poetry run test
