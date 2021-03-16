@@ -116,6 +116,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Secrets
+*.secrets.*
+
 # Spyder project settings
 .spyderproject
 .spyproject
