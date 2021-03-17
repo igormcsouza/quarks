@@ -13,7 +13,10 @@ const Home: React.FC<{}> = () => {
         return (
           <>
             <MovieReviewtitle text="MovieTitle" />
-            <MovieReviewImage src="url" alt="alt" />
+            <MovieReviewImage
+              src="https://via.placeholder.com/300x444"
+              alt="placeholder"
+            />
             <MovieReviewFormBox onSubmit={() => setProcess("waiting")} />
           </>
         );
@@ -23,7 +26,7 @@ const Home: React.FC<{}> = () => {
   }
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <MovieReviewBox>{renderProcess(process)}</MovieReviewBox>
     </div>
   );
