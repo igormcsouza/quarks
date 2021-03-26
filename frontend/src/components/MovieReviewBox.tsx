@@ -3,11 +3,7 @@ import React from "react";
 
 const useStyles = makeStyles({
   root: {
-    height: "100%",
-  },
-  paper: {
-    height: 600,
-    width: 500,
+    margin: 10,
   },
 });
 
@@ -15,16 +11,12 @@ const MovieReviewBox: React.FC<{}> = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid
-      className={classes.root}
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-    >
-      <Paper className={classes.paper} variant="outlined">
-        {props.children}
-      </Paper>
+    <Grid container justify="center" style={{ height: "100%", width: "100%" }}>
+      <Grid item className={classes.root} xs={10} md={6}>
+        <Paper className={classes.root} variant="outlined">
+          {props.children}
+        </Paper>
+      </Grid>
     </Grid>
   );
 };

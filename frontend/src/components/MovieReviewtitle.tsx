@@ -3,7 +3,7 @@ import React from "react";
 
 const useStyles = makeStyles({
   root: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
   },

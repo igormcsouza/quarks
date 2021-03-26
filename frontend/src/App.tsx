@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 
 const useStyles = makeStyles({
   root: {
-    background: "#5D82F0",
     color: "white",
     height: "100%",
     width: "100%",
