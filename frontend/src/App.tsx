@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Home from "./pages/Home";
+import ContextProvider from "./store/Context";
 
 const useStyles = makeStyles({
   root: {
@@ -17,9 +18,11 @@ const App: React.FC<{}> = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Home />
-    </div>
+    <ContextProvider>
+      <div className={classes.root}>
+        <Home />
+      </div>
+    </ContextProvider>
   );
 };
 
