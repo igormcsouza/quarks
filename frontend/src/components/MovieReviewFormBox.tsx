@@ -11,7 +11,10 @@ import {
 } from "@material-ui/core";
 import { Send, Close } from "@material-ui/icons";
 import Alert from "@material-ui/lab/Alert";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { classify_review } from "../services/api";
+import { Context } from "../store/Context";
+import { actionsTypes } from "../store/reducer";
 
 interface IMovieReviewFormBox {
   onSubmit: () => void;
@@ -51,6 +54,7 @@ const CloseAlert: React.FC<{ onClick: () => void }> = (props) => {
 };
 
 const MovieReviewFormBox: React.FC<IMovieReviewFormBox> = (props) => {
+  const { dispatch } = useContext(Context);
   const [text, setText] = useState("");
   const [alertCase, setAlertCase] = useState("");
   const [textError, setTextError] = useState(false);
@@ -71,7 +75,16 @@ const MovieReviewFormBox: React.FC<IMovieReviewFormBox> = (props) => {
       setAlertCase("UserError");
     } else {
       setTextError(false);
-      setAlertCase("TextSent");
+
+      dispatch({
+        type: actionsTypes.REGISTER_REVIEW,
+        payload: { review: text },
+      });
+
+      classify_review(text).then((result) => {
+        console.log(result);
+        setAlertCase("TextSent");
+      });
     }
   }
 
