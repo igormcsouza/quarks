@@ -10,4 +10,12 @@ jobs:
       - name: Build Backend Images
         run: docker-compose build backend-test
       - name: Run Test Backend Pipeline
-        run: docker-compose run backend-test poetry run test
+        run: docker-compose run backend-test
+  frontend:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Frontend Images
+        run: docker-compose build frontend-test
+      - name: Run Frontend Test using Jest
+        run: docker-compose run frontend-test
