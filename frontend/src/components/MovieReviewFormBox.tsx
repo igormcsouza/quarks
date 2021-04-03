@@ -81,8 +81,14 @@ const MovieReviewFormBox: React.FC<IMovieReviewFormBox> = (props) => {
         payload: { review: text },
       });
 
+      props.onSubmit();
+
       classify_review(text).then((result) => {
         console.log(result);
+        dispatch({
+          type: actionsTypes.REGISTER_RESULT,
+          payload: { result },
+        });
         setAlertCase("TextSent");
       });
     }
